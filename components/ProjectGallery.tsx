@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -89,54 +89,70 @@ export default function ProjectGallery() {
           viewport={{ once: true }}
           className="mt-14"
         >
-          <div className="relative h-96 w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-            <Image
-              src={showBefore ? beforeAfterImages.before.src : beforeAfterImages.after.src}
-              alt={showBefore ? beforeAfterImages.before.alt : beforeAfterImages.after.alt}
-              fill
-              className="object-cover transition-opacity duration-500"
-            />
+          <div className="relative h-96 w-full overflow-hidden rounded-3xl border border-border bg-white shadow-inner">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={showBefore ? "before" : "after"}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={showBefore ? beforeAfterImages.before.src : beforeAfterImages.after.src}
+                  alt={showBefore ? beforeAfterImages.before.alt : beforeAfterImages.after.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                  className="object-cover"
+                />
+              </motion.div>
+            </AnimatePresence>
             <div className="absolute inset-0 flex items-center justify-between p-4">
-              <button
+              <motion.button
                 onClick={() => setShowBefore(true)}
                 className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${
                   showBefore ? "bg-white/30" : ""
                 }`}
                 aria-label="Show before"
+                whileTap={{ scale: 0.94 }}
               >
                 <ChevronLeft className="h-6 w-6 text-foreground" />
-              </button>
+              </motion.button>
               <div className="flex gap-2">
-                <button
+                <motion.button
                   onClick={() => setShowBefore(true)}
                   className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${
                     showBefore
                       ? "bg-white/30 text-foreground"
                       : "bg-white/10 text-muted-foreground hover:bg-white/20"
                   }`}
+                  whileTap={{ scale: 0.96 }}
                 >
                   Before
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   onClick={() => setShowBefore(false)}
                   className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${
                     !showBefore
                       ? "bg-white/30 text-foreground"
                       : "bg-white/10 text-muted-foreground hover:bg-white/20"
                   }`}
+                  whileTap={{ scale: 0.96 }}
                 >
                   After
-                </button>
+                </motion.button>
               </div>
-              <button
+              <motion.button
                 onClick={() => setShowBefore(false)}
                 className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${
                   !showBefore ? "bg-white/30" : ""
                 }`}
                 aria-label="Show after"
+                whileTap={{ scale: 0.94 }}
               >
                 <ChevronRight className="h-6 w-6 text-foreground" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </motion.div>
@@ -148,10 +164,11 @@ export default function ProjectGallery() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                whileHover={{ y: -6, boxShadow: "0 22px 40px rgba(31,41,55,0.15)" }}
             >
-              <Card className="h-full border-white/10 bg-white/[0.04] transition hover:border-white/20 hover:bg-white/[0.06]">
-                <div className="h-48 w-full overflow-hidden rounded-3xl border-b border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_60%)]">
+                <Card className="h-full border-border bg-white transition hover:border-slate-200 hover:bg-zinc-50">
+                <div className="h-48 w-full overflow-hidden rounded-3xl border-b border-border bg-zinc-50">
                   <ProjectPlaceholder />
                 </div>
                 <CardHeader className="space-y-4">

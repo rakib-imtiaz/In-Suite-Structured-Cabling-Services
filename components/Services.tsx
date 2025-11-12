@@ -78,6 +78,8 @@ const enhancements = [
     title: "In-suite device finishing",
     description:
       "Flush or surface plates, multimedia outlets, and discreet finishes selected for each interior.",
+    image: "/images/flush_mount_outlet_finish.png",
+    imageAlt: "Flush-mounted wall plate with Ethernet and USB ports, clean modern finish",
   },
   {
     icon: Radio,
@@ -91,7 +93,7 @@ const enhancements = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-background-light py-20 sm:py-24">
+    <section id="services" className="bg-muted py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -99,11 +101,11 @@ export default function Services() {
           viewport={{ once: true }}
           className="flex flex-col gap-6 text-center"
         >
-          <Badge className="mx-auto tracking-[0.35em]">Services</Badge>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <Badge className="mx-auto border-none bg-primary/10 font-semibold uppercase tracking-[0.35em] text-primary">Services</Badge>
+          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Full-scope cabling services designed for modern buildings
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+          <p className="mx-auto max-w-2xl text-base leading-[1.7] text-muted-foreground sm:text-lg">
             From construction through commissioning, we take ownership for the network backbone
             so your teams can focus on the architectural finish and the tenant experience.
           </p>
@@ -119,35 +121,37 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full"
               >
-                <Card className="h-full overflow-hidden border-white/10 bg-white/[0.04] transition hover:border-white/20 hover:bg-white/[0.06]">
+                <Card className="accent-border-top card-shadow h-full overflow-hidden border-border bg-white transition-all hover:-translate-y-2 hover:card-shadow-hover">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}
                       fill
-                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 420px"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-                  <CardHeader className="space-y-6">
+                  <CardHeader className="space-y-5">
                     <div className="flex items-center justify-between">
-                      <Badge variant="secondary" className="tracking-[0.25em]">
+                      <Badge variant="secondary" className="font-semibold uppercase tracking-[0.25em]">
                         {service.label}
                       </Badge>
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-foreground">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-accent/30 bg-accent/10 text-accent">
                         <Icon className="h-6 w-6" />
                       </span>
                     </div>
-                    <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed text-muted-foreground">
+                    <CardTitle className="text-2xl font-bold text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-sm leading-[1.7] text-muted-foreground">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-3 text-sm text-muted-foreground">
+                  <CardContent className="space-y-3 text-sm font-medium text-muted-foreground">
                     {service.deliverables.map((item) => (
                       <div key={item} className="flex items-start gap-3">
-                        <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-foreground" />
-                        <span>{item}</span>
+                        <span className="mt-[6px] h-2 w-2 flex-shrink-0 rounded-full bg-accent" />
+                        <span className="leading-relaxed">{item}</span>
                       </div>
                     ))}
                   </CardContent>
@@ -167,20 +171,22 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -6, boxShadow: "0 20px 35px rgba(59,130,246,0.16)" }}
               >
-                <Card className="overflow-hidden border-white/10 bg-background-elevated/80 transition hover:border-white/20">
+                <Card className="overflow-hidden border-border bg-white transition hover:border-blue-200">
                   {item.image && (
-                    <div className="relative h-40 w-full overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden bg-zinc-100">
                       <Image
                         src={item.image}
                         alt={item.imageAlt || item.title}
                         fill
-                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 360px"
+                        className="object-contain"
                       />
                     </div>
                   )}
                   <CardHeader className="space-y-4 pb-5">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-foreground">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-border bg-zinc-50 text-foreground">
                       <Icon className="h-5 w-5" />
                     </span>
                     <CardTitle className="text-xl text-foreground">{item.title}</CardTitle>

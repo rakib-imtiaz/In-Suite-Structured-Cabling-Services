@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import {
   CheckCircle2,
   FileText,
@@ -59,7 +60,7 @@ const impactStats = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-background-light py-20 sm:py-24">
+    <section className="bg-zinc-50 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,15 +80,23 @@ export default function WhyChooseUs() {
             </p>
             <div className="grid gap-6 sm:grid-cols-3">
               {impactStats.map((stat) => (
-                <div
+                <motion.div
                   key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center"
+                  className="rounded-2xl border border-border bg-white p-6 text-center shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45 }}
+                  whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(56,189,248,0.16)" }}
                 >
-                  <p className="text-3xl font-semibold text-foreground sm:text-4xl">{stat.value}</p>
+                  <AnimatedNumber
+                    value={stat.value}
+                    className="block text-3xl font-semibold text-foreground sm:text-4xl"
+                  />
                   <p className="mt-2 text-xs uppercase tracking-[0.35em] text-zinc-500">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -102,10 +111,14 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
+                  whileHover={{
+                    y: -6,
+                    boxShadow: "0 22px 45px rgba(15,118,110,0.12)",
+                  }}
                 >
-                  <Card className="h-full border-white/10 bg-background-elevated/80 transition hover:border-white/20">
+                  <Card className="h-full border-border bg-white transition hover:border-emerald-200">
                     <CardContent className="space-y-4 py-7">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-foreground">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-zinc-50 text-foreground">
                         <Icon className="h-5 w-5" />
                       </span>
                       <div className="space-y-2 text-left">

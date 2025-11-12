@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import MotionProvider from "@/components/MotionProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
   description: "Professional CAT5e/6/6a/7, Coax & Fiber installations for residential and commercial units in Kamloops, BC. Certified testing, complete labeling, and test reports.",
   keywords: "structured cabling, network installation, Kamloops, CAT6, fiber optic, cable pulling, termination",
   authors: [{ name: "Sequoia Services" }],
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   openGraph: {
     title: "In-Suite Structured Cabling by Sequoia Services",
     description: "Future-ready structured cabling with certified testing and complete labeling",
@@ -60,7 +65,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

@@ -55,12 +55,12 @@ export default function Contact() {
           viewport={{ once: true }}
           className="flex flex-col items-center gap-6 text-center"
         >
-          <Badge className="tracking-[0.35em]">Let's build</Badge>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <Badge className="border-none bg-primary/10 font-semibold uppercase tracking-[0.35em] text-primary">Let's build</Badge>
+          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Ready to cable your next project?
           </h2>
-          <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Tell us about your scope and timelines. We’ll coordinate a walkthrough, confirm the
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg sm:leading-[1.8]">
+            Tell us about your scope and timelines. We'll coordinate a walkthrough, confirm the
             drop schedule, and keep you updated through every milestone.
           </p>
         </motion.div>
@@ -73,66 +73,75 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <Card className="border-white/10 bg-white/[0.04]">
+            <Card className="accent-border-top card-shadow border-border bg-white">
               <CardHeader className="space-y-4">
-                <CardTitle className="text-2xl text-foreground">
+                <CardTitle className="text-2xl font-bold text-foreground">
                   Contact the Sequoia Services team
                 </CardTitle>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   Call, email, or complete the form—we respond within one business day.
                 </p>
               </CardHeader>
               <CardContent className="space-y-5">
-                {contactDetails.map((detail) => {
+                {contactDetails.map((detail, index) => {
                   const Icon = detail.icon;
+                  const bgColor = index === 0 ? "bg-accent/10" : "bg-primary/10";
+                  const borderColor = index === 0 ? "border-accent/30" : "border-primary/30";
+                  const iconColor = index === 0 ? "text-accent" : "text-primary";
                   return (
-                    <a
+                    <motion.a
                       key={detail.label}
                       href={detail.href}
-                      className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-white/20"
+                      className={`flex items-center gap-4 rounded-2xl border-2 ${borderColor} ${bgColor} px-5 py-4 transition-all hover:card-shadow`}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, delay: index * 0.08 }}
+                      whileHover={{ y: -4 }}
                     >
-                      <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-foreground">
-                        <Icon className="h-5 w-5" />
+                      <span className={`flex h-12 w-12 items-center justify-center rounded-2xl border-2 ${borderColor} bg-white ${iconColor}`}>
+                        <Icon className="h-6 w-6" />
                       </span>
                       <div className="text-left">
-                        <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">
+                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                           {detail.label}
                         </p>
-                        <p className="text-base font-semibold text-foreground">{detail.value}</p>
+                        <p className="text-base font-bold text-foreground">{detail.value}</p>
                       </div>
-                    </a>
+                    </motion.a>
                   );
                 })}
               </CardContent>
             </Card>
 
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+            <div className="secondary-border-top card-shadow relative overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-8">
               <div className="pointer-events-none absolute inset-0 -z-10">
                 <Image
                   src="/images/service_area_kamloops_street.png"
                   alt="Kamloops street scene at dusk, distant hills, pedestrians"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover opacity-20"
                 />
-                <div className="absolute inset-0 bg-background/80" />
+                <div className="absolute inset-0 bg-background/85" />
               </div>
-              <div className="relative grid gap-4">
-                <div className="flex items-center gap-3 text-left">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-foreground">
-                    <MapPin className="h-5 w-5" />
+              <div className="relative grid gap-5">
+                <div className="flex items-center gap-4 text-left">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-secondary/30 bg-secondary/10 text-secondary">
+                    <MapPin className="h-6 w-6" />
                   </span>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">Service area</p>
-                    <p className="text-sm text-foreground">Kamloops, BC and surrounding communities</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Service area</p>
+                    <p className="text-sm font-semibold text-foreground">Kamloops, BC and surrounding communities</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-left">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-foreground">
-                    <Clock className="h-5 w-5" />
+                <div className="flex items-center gap-4 text-left">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-secondary/30 bg-secondary/10 text-secondary">
+                    <Clock className="h-6 w-6" />
                   </span>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">Hours</p>
-                    <p className="text-sm text-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Hours</p>
+                    <p className="text-sm font-semibold text-foreground">
                       Monday–Friday: 8 am – 6 pm · Saturday: 9 am – 4 pm · Sunday: By appointment
                     </p>
                   </div>
@@ -147,22 +156,23 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="rounded-3xl border border-white/10 bg-background-elevated/80 p-6 sm:p-8 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.9)]"
+            className="primary-border-top card-shadow rounded-3xl border border-border bg-white p-6 sm:p-8"
           >
             <div className="space-y-6">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">Project brief</p>
-                <h3 className="mt-3 text-2xl font-semibold text-foreground">
-                  Tell us what you’re building
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Project brief</p>
+                <h3 className="mt-3 text-2xl font-bold text-foreground">
+                  Tell us what you're building
                 </h3>
               </div>
-              <div className="grid gap-4">
+              <div className="grid gap-5">
                 <Input
                   name="name"
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="h-12 border-2 focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
                 <Input
                   type="email"
@@ -171,12 +181,14 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="h-12 border-2 focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
                 <Input
                   name="phone"
                   placeholder="Phone number"
                   value={formData.phone}
                   onChange={handleChange}
+                  className="h-12 border-2 focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
                 <Textarea
                   name="message"
@@ -185,9 +197,10 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  className="border-2 focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full">
+              <Button type="submit" size="lg" className="w-full bg-foreground text-background hover:bg-foreground/90">
                 Submit project details
               </Button>
             </div>

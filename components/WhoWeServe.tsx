@@ -75,18 +75,20 @@ export default function WhoWeServe() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(37,99,235,0.12)" }}
               >
-                <Card className="h-full overflow-hidden border-white/10 bg-white/[0.03] transition hover:border-white/20 hover:bg-white/[0.05]">
+                <Card className="h-full overflow-hidden border-border bg-white transition hover:border-blue-200 hover:bg-zinc-50">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={audience.image}
                       alt={audience.imageAlt}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 360px"
                       className="object-cover"
                     />
                   </div>
                   <CardHeader className="space-y-6">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-foreground">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-zinc-50 text-foreground">
                       <Icon className="h-6 w-6" />
                     </span>
                     <CardTitle className="text-2xl text-foreground">{audience.title}</CardTitle>

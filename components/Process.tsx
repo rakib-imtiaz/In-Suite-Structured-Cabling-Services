@@ -64,7 +64,7 @@ export default function Process() {
           </p>
         </motion.div>
 
-        <div className="mt-16 space-y-10 border-l border-white/10 pl-6 sm:pl-10">
+        <div className="mt-16 space-y-10 border-l border-border pl-6 sm:pl-10">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -74,15 +74,16 @@ export default function Process() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.12 }}
+                whileHover={{ x: 0, y: -6, boxShadow: "0 20px 35px rgba(59,130,246,0.14)" }}
                 className="relative"
               >
-                <div className="absolute -left-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/[0.05] text-sm font-semibold text-foreground sm:-left-12 sm:h-12 sm:w-12">
+                <div className="absolute -left-10 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-zinc-50 text-sm font-semibold text-foreground sm:-left-12 sm:h-12 sm:w-12">
                   {step.step}
                 </div>
-                <Card className="ml-4 border-white/10 bg-white/[0.04] transition hover:border-white/20">
+                <Card className="ml-4 border-border bg-white transition hover:border-blue-200">
                   <CardContent className="space-y-5 py-8">
                     <div className="flex items-center gap-4 text-left">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-foreground">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-zinc-50 text-foreground">
                         <Icon className="h-6 w-6" />
                       </span>
                       <div>

@@ -1,5 +1,7 @@
+import PageShell from "@/components/PageShell";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
 import TrustBar from "@/components/TrustBar";
 import ProblemSolution from "@/components/ProblemSolution";
 import WhoWeServe from "@/components/WhoWeServe";
@@ -13,9 +15,10 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <PageShell>
       <Header />
       <Hero />
+      <Stats />
       <TrustBar />
       <ProblemSolution />
       <WhoWeServe />
@@ -26,7 +29,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
-    </main>
+    </PageShell>
   );
 }
 

@@ -50,19 +50,21 @@ export default function ProblemSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -6 }}
             >
-              <Card className="h-full overflow-hidden border-white/10 bg-white/[0.04]">
+              <Card className="h-full overflow-hidden border-border bg-white shadow-sm transition hover:border-sky-200 hover:shadow-lg hover:shadow-sky-200/25">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={panel.image}
                     alt={panel.imageAlt}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
                     className="object-cover"
                   />
                 </div>
                 <CardHeader className="space-y-6">
                   <Badge className="w-fit">{panel.badge}</Badge>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-zinc-50">
                     <Icon className="h-6 w-6 text-foreground" />
                   </span>
                   <CardTitle className="text-3xl leading-tight text-foreground">

@@ -62,7 +62,7 @@ export default function FAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <section id="faq" className="bg-background-light py-20 sm:py-24">
+      <section id="faq" className="bg-zinc-50 py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,14 +84,14 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 rounded-3xl border border-white/10 bg-white/[0.04] p-4 sm:p-8"
+            className="mt-12 rounded-3xl border border-border bg-white p-4 sm:p-8"
           >
             <Accordion type="single" collapsible className="w-full space-y-2">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={faq.question}
                   value={`item-${index}`}
-                  className="overflow-hidden rounded-2xl border border-white/5 bg-background-elevated/60 px-4"
+                  className="overflow-hidden rounded-2xl border border-border bg-zinc-50 px-4"
                 >
                   <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline sm:text-lg">
                     {faq.question}
