@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -116,13 +115,7 @@ export default function Contact() {
 
             <div className="secondary-border-top card-shadow relative overflow-hidden rounded-3xl border border-border bg-white p-6 sm:p-8">
               <div className="pointer-events-none absolute inset-0 -z-10">
-                <Image
-                  src="/images/service_area_kamloops_street.png"
-                  alt="Kamloops street scene at dusk, distant hills, pedestrians"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 480px"
-                  className="object-cover opacity-20"
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
                 <div className="absolute inset-0 bg-background/85" />
               </div>
               <div className="relative grid gap-5">

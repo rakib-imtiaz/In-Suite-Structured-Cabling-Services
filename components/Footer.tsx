@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,13 +17,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t-2 border-primary/20 bg-muted">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <Image
-          src="/images/conversion_footer_technician_team_lobby.png"
-          alt="Three technicians in an apartment lobby, smiling, one looking at a tablet"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-10"
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-muted via-muted/95 to-muted" />
       </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
