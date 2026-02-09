@@ -6,6 +6,7 @@ import TrustBar from "@/components/TrustBar";
 import ProblemSolution from "@/components/ProblemSolution";
 import WhoWeServe from "@/components/WhoWeServe";
 import Services from "@/components/Services";
+import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProjectGallery from "@/components/ProjectGallery";
@@ -23,6 +24,7 @@ export default function Home() {
       <ProblemSolution />
       <WhoWeServe />
       <Services />
+      <Pricing />
       <Process />
       <WhyChooseUs />
       <ProjectGallery />

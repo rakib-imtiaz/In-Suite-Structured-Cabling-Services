@@ -26,8 +26,8 @@ const coreServices = [
     title: "Structured cable pulling & routing",
     description:
       "CAT5e, CAT6, CAT6a, CAT7, coax, and fiber pulled with care for finished and in-progress suites.",
-    image: "/images/core_service_cable_pulling_routing.png",
-    imageAlt: "Technician pulling cable through studs",
+    image: "/new_client_asset/overhead_cable_tray_color_coded_network_cables.jpg",
+    imageAlt: "Overhead cable tray with color-coded network cables",
     deliverables: [
       "Blueprint-informed pathways and penetration protection",
       "Suite-by-suite homeruns routed cleanly to telecom rooms",
@@ -40,8 +40,8 @@ const coreServices = [
     title: "Termination, labeling & patching",
     description:
       "Professional terminations at jacks, patch panels, and equipment—with a labeling system crews can follow.",
-    image: "/images/core_service_termination_labeling.png",
-    imageAlt: "Close-up of hand punching down keystone jack",
+    image: "/new_client_asset/network_rack_fully_populated_patch_panels.jpg",
+    imageAlt: "Fully populated network rack with patch panels",
     deliverables: [
       "Wall plates, keystones, and rack hardware supplied and installed",
       "Standardized labeling schema mapped to drawings",
@@ -54,8 +54,8 @@ const coreServices = [
     title: "Testing & certification",
     description:
       "No handover without proof. We certify every run and package the documentation for your closeout binder.",
-    image: "/images/core_service_testing_certification.png",
-    imageAlt: "Handheld tester showing PASS, test report",
+    image: "/new_client_asset/fiber_backbone_distribution_wall_corning_boxes.jpg",
+    imageAlt: "Fiber backbone distribution with Corning junction boxes",
     deliverables: [
       "Fluke DSX reports for CAT6/CAT6a installations",
       "Detailed deficiency list and corrective actions (if any)",
@@ -70,24 +70,24 @@ const enhancements = [
     title: "Communication closets & racks",
     description:
       "Cabinet, rack, and tray builds that keep your infrastructure organized as properties scale.",
-    image: "/images/core_service_wall_plates_patch_panels.png",
-    imageAlt: "Flush-mounted wall plate, person walking by",
+    image: "/new_client_asset/wall_mounted_network_rack_overview.jpg",
+    imageAlt: "Wall mounted network rack overview",
   },
   {
     icon: Plug,
     title: "In-suite device finishing",
     description:
       "Flush or surface plates, multimedia outlets, and discreet finishes selected for each interior.",
-    image: "/images/flush_mount_outlet_finish.png",
-    imageAlt: "Flush-mounted wall plate with Ethernet and USB ports, clean modern finish",
+    image: "/new_client_asset/structured_media_enclosure_fiber_coax_network_panel.jpg",
+    imageAlt: "Structured media enclosure with fiber, coax, and network panel",
   },
   {
     icon: Radio,
     title: "Smart home & automation pre-wire",
     description:
       "Audio, lighting, and sensor cabling to prep for Crestron, Control4, Lutron, and future systems.",
-    image: "/images/bento_card_smart_home_prewiring_studs.png",
-    imageAlt: "Open studs, conduit, technician's hands guiding cables",
+    image: "/new_client_asset/end_user_network_cabinet_router_wifi.jpg",
+    imageAlt: "End user network cabinet with router and wifi equipment",
   },
 ];
 

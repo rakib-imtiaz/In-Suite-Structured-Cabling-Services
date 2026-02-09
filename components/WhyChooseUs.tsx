@@ -16,46 +16,46 @@ import {
 const differentiators = [
   {
     icon: CheckCircle2,
-    title: "Certified by default",
+    title: "BICSI TECH Certified",
     description:
-      "Every cable is terminated, tested, and documented with Fluke DSX certification—no guesswork, no exceptions.",
+      "Our technicians hold BICSI certification—the gold standard for structured cabling installation and testing.",
   },
   {
     icon: Tags,
-    title: "Labeling that scales",
+    title: "ETA Fibre Certified",
     description:
-      "Suite-to-riser labeling that stays legible and logical, even after years of moves, adds, and changes.",
+      "Specialized fibre optic certification ensures proper handling, termination, and testing of all fibre installations.",
   },
   {
     icon: Sparkles,
-    title: "Finish-grade details",
+    title: "BC Security Licensed",
     description:
-      "We work inside finished suites with the same respect for surfaces and schedules as your millwork crew.",
+      "Licensed under BC Security Programs for security system wiring and camera installations—fully compliant.",
   },
   {
     icon: Zap,
-    title: "Future-proof backbone",
+    title: "Professional Testing",
     description:
-      "Pre-wired for Wi-Fi 7, PoE lighting, IPTV, and smart building systems so you can deploy without retrofits.",
+      "Every cable is tested with Fluke DSX equipment and documented with certification reports you can trust.",
   },
   {
     icon: FileText,
-    title: "Closeout packages that impress",
+    title: "Complete Documentation",
     description:
       "Photo documentation, labeling schedules, and certification reports delivered in one tidy digital package.",
   },
   {
     icon: MapPin,
-    title: "Kamloops-based response",
+    title: "Code-Compliant Installations",
     description:
-      "Local team with rapid turnaround for warranty calls, adds, or technology refreshes across your portfolio.",
+      "Clean, professional installations that meet or exceed all local building and electrical codes.",
   },
 ];
 
 const impactStats = [
-  { value: "48h", label: "Typical suite turnarounds" },
-  { value: "0", label: "Return visits for repairs" },
-  { value: "100%", label: "Suites delivered certified" },
+  { value: "100%", label: "Certified installations" },
+  { value: "0", label: "Failed inspections" },
+  { value: "48h", label: "Typical turnarounds" },
 ];
 
 export default function WhyChooseUs() {

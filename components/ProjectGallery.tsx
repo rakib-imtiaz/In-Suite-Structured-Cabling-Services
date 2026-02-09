@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Images as ImagesIcon, LucideProps } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
@@ -24,6 +24,7 @@ const projects = [
       "Suite turnovers aligned with staged occupancy",
       "Closeout package integrated with GC Procore logs",
     ],
+    image: "/new_client_asset/network_rack_switch_patch_panel_closeup.jpg",
   },
   {
     title: "Kamloops tech campus",
@@ -35,6 +36,7 @@ const projects = [
       "Fiber uplinks added to support redundant routing",
       "Room-by-room labeling delivered to IT support",
     ],
+    image: "/new_client_asset/security_av_network_rack_avaton_system.jpg",
   },
   {
     title: "Custom hillside residence",
@@ -46,17 +48,18 @@ const projects = [
       "12-zone audio and 4K distribution prepped for integrator",
       "Owner received binder with all labeling schematics",
     ],
+    image: "/new_client_asset/telecom_security_alarm_wiring_wall.jpg",
   },
 ];
 
 const beforeAfterImages = {
   before: {
-    src: "/images/projects_before_messy_wiring.png",
-    alt: "Cramped utility nook, messy spaghetti wiring",
+    src: "/new_client_asset/building_cable_tray_horizontal_routing.jpg",
+    alt: "Building cable tray with horizontal routing in progress",
   },
   after: {
-    src: "/images/projects_after_neat_labeled_panel.png",
-    alt: "The same utility nook, now with neatly dressed and labeled cables",
+    src: "/new_client_asset/vertical_cable_management_rack_side_view.jpg",
+    alt: "Vertical cable management rack with organized cables",
   },
 };
 
@@ -111,9 +114,8 @@ export default function ProjectGallery() {
             <div className="absolute inset-0 flex items-center justify-between p-4">
               <motion.button
                 onClick={() => setShowBefore(true)}
-                className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${
-                  showBefore ? "bg-white/30" : ""
-                }`}
+                className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${showBefore ? "bg-white/30" : ""
+                  }`}
                 aria-label="Show before"
                 whileTap={{ scale: 0.94 }}
               >
@@ -122,22 +124,20 @@ export default function ProjectGallery() {
               <div className="flex gap-2">
                 <motion.button
                   onClick={() => setShowBefore(true)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${
-                    showBefore
-                      ? "bg-white/30 text-foreground"
-                      : "bg-white/10 text-muted-foreground hover:bg-white/20"
-                  }`}
+                  className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${showBefore
+                    ? "bg-white/30 text-foreground"
+                    : "bg-white/10 text-muted-foreground hover:bg-white/20"
+                    }`}
                   whileTap={{ scale: 0.96 }}
                 >
                   Before
                 </motion.button>
                 <motion.button
                   onClick={() => setShowBefore(false)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${
-                    !showBefore
-                      ? "bg-white/30 text-foreground"
-                      : "bg-white/10 text-muted-foreground hover:bg-white/20"
-                  }`}
+                  className={`rounded-full px-4 py-2 text-sm font-medium backdrop-blur-sm transition ${!showBefore
+                    ? "bg-white/30 text-foreground"
+                    : "bg-white/10 text-muted-foreground hover:bg-white/20"
+                    }`}
                   whileTap={{ scale: 0.96 }}
                 >
                   After
@@ -145,9 +145,8 @@ export default function ProjectGallery() {
               </div>
               <motion.button
                 onClick={() => setShowBefore(false)}
-                className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${
-                  !showBefore ? "bg-white/30" : ""
-                }`}
+                className={`rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition hover:bg-white/20 ${!showBefore ? "bg-white/30" : ""
+                  }`}
                 aria-label="Show after"
                 whileTap={{ scale: 0.94 }}
               >
@@ -164,12 +163,18 @@ export default function ProjectGallery() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                whileHover={{ y: -6, boxShadow: "0 22px 40px rgba(31,41,55,0.15)" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              whileHover={{ y: -6, boxShadow: "0 22px 40px rgba(31,41,55,0.15)" }}
             >
-                <Card className="h-full border-border bg-white transition hover:border-slate-200 hover:bg-zinc-50">
-                <div className="h-48 w-full overflow-hidden rounded-3xl border-b border-border bg-zinc-50">
-                  <ProjectPlaceholder />
+              <Card className="h-full border-border bg-white transition hover:border-slate-200 hover:bg-zinc-50">
+                <div className="relative h-48 w-full overflow-hidden rounded-t-3xl border-b border-border">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 420px"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
                 <CardHeader className="space-y-4">
                   <span className="text-xs uppercase tracking-[0.35em] text-zinc-500">
@@ -196,15 +201,3 @@ export default function ProjectGallery() {
     </section>
   );
 }
-
-function ProjectPlaceholder(props: LucideProps) {
-  return (
-    <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent_65%)]">
-      <ImagesIcon className="h-10 w-10 text-white/40" {...props} />
-    </div>
-  );
-}
-
-
-
-
