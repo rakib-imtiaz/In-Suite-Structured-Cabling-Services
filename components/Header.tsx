@@ -87,12 +87,12 @@ export default function Header() {
             </span>
             <span className="text-sm font-bold text-foreground">Structured Cabling</span>
           </div>
-          <Badge className="hidden sm:inline-flex tracking-[0.28em] border-primary/30 bg-primary/5 text-primary font-semibold" variant="outline">
+          <Badge className="hidden xl:inline-flex tracking-[0.28em] border-primary/30 bg-primary/5 text-primary font-semibold" variant="outline">
             Kamloops · BC
           </Badge>
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
           {navigation.map((item, index) => (
             <motion.a
               key={item.name}
@@ -113,7 +113,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.5 }}
-          className="hidden items-center gap-4 md:flex"
+          className="hidden items-center gap-4 lg:flex"
         >
           <Button size="default" asChild className="bg-foreground text-background hover:bg-foreground/90">
             <a href="#contact">Start a project</a>
@@ -121,7 +121,7 @@ export default function Header() {
         </motion.div>
 
         <Sheet>
-          <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md md:hidden">
+          <SheetTrigger className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md lg:hidden">
             <span className="sr-only">Open navigation</span>
             <Menu className="h-5 w-5" />
           </SheetTrigger>
