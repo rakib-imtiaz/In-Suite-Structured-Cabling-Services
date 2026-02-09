@@ -125,32 +125,59 @@ export default function Header() {
             <span className="sr-only">Open navigation</span>
             <Menu className="h-5 w-5" />
           </SheetTrigger>
-          <SheetContent side="right" className="w-full max-w-xs border-l border-slate-100 bg-white/95 backdrop-blur">
+          <SheetContent side="right" className="w-full max-w-sm border-l border-slate-100 bg-white p-0">
             <div className="sr-only">
               <SheetTitle>Primary navigation</SheetTitle>
               <SheetDescription>Select a section to navigate to.</SheetDescription>
             </div>
-            <div className="mt-12 flex flex-col gap-8">
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Navigate</p>
-                <div className="mt-6 flex flex-col gap-5 text-lg font-medium text-slate-900">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-between text-base font-semibold transition hover:text-primary"
-                    >
-                      {item.name}
-                      <span className="h-1 w-8 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-70" />
-                    </a>
-                  ))}
+
+            {/* Header with logo */}
+            <div className="border-b border-slate-100 px-6 py-5">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/logo.png"
+                  alt="Sequoia Services Logo"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8"
+                />
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-[0.3em] text-slate-600">
+                    Sequoia
+                  </span>
+                  <span className="text-sm font-bold text-slate-900">Structured Cabling</span>
                 </div>
               </div>
-              <div>
-                <Button className="w-full bg-foreground text-background hover:bg-foreground/90" size="lg" asChild>
-                  <a href="#contact">Start a project</a>
-                </Button>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="px-3 py-6">
+              <p className="mb-4 px-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                Navigation
+              </p>
+              <div className="flex flex-col gap-1">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="group flex items-center gap-3 rounded-lg px-3 py-3 text-[15px] font-medium text-slate-700 transition-all hover:bg-slate-50 hover:text-slate-900"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/40 transition-all group-hover:bg-primary" />
+                    {item.name}
+                  </a>
+                ))}
               </div>
+            </nav>
+
+            {/* CTA Button at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 border-t border-slate-100 bg-white p-6">
+              <Button
+                className="w-full rounded-xl bg-slate-900 py-6 text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800"
+                size="lg"
+                asChild
+              >
+                <a href="#contact">Start a project</a>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
