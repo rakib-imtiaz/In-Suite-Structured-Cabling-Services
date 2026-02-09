@@ -9,79 +9,80 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate flex min-h-[100vh] items-end overflow-hidden bg-background pb-20"
+      className="relative min-h-screen overflow-hidden bg-background pt-20 lg:min-h-[calc(100vh-80px)]"
     >
-      {/* Full-Screen Video Background */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/hero_condo_ethernet_kamloops.png"
-          className="h-full w-full object-cover"
+      <div className="grid h-full min-h-[calc(100vh-80px)] lg:grid-cols-2">
+        {/* Right Image - First in HTML for mobile */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative h-[400px] lg:order-2 lg:h-full lg:min-h-[calc(100vh-80px)]"
         >
-          <source src="/videos/hero_section_video.mp4" type="video/mp4" />
-          {/* Fallback Image */}
           <Image
-            src="/images/hero_condo_ethernet_kamloops.png"
+            src="/images/hero_image.png"
             alt="Professional structured cabling installation"
             fill
-            sizes="100vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
             priority
           />
-        </video>
-      </motion.div>
+        </motion.div>
 
-      {/* Bottom Content - Buttons Only */}
-      <div className="relative z-10 flex w-full justify-center px-4 sm:px-6 lg:px-8">
+        {/* Left Content - Second in HTML for mobile, first on desktop */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex items-center px-6 py-16 sm:px-12 lg:order-1 lg:px-16 xl:px-24"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button
-              size="lg"
-              asChild
-              className="rounded-full bg-white/30 text-foreground backdrop-blur-sm transition hover:bg-white/40"
+          <div className="max-w-xl">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
             >
-              <a href="#contact">Book a site walk-through</a>
-            </Button>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="rounded-full border border-white/20 bg-white/10 text-foreground backdrop-blur-sm transition hover:bg-white/20"
+              Professional Structured Cabling for Multi-Unit Buildings
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-6 text-lg text-muted-foreground sm:text-xl"
             >
-              <a href="tel:2505747110">
-                <Phone className="h-4 w-4" />
-                (250) 574-7110
-              </a>
-            </Button>
-          </motion.div>
+              Expert Installation • BICSI Certified • Kamloops, BC
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-8 flex flex-col gap-4 sm:flex-row"
+            >
+              <Button
+                size="lg"
+                asChild
+                className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                <a href="#contact">Book a site walk-through</a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="rounded-full border-2"
+              >
+                <a href="tel:2505747110">
+                  <Phone className="mr-2 h-4 w-4" />
+                  (250) 574-7110
+                </a>
+              </Button>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
-
     </section>
   );
 }
-
-
-
-
